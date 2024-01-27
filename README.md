@@ -1,3 +1,8 @@
+# This project consists of two branches:
+## Main- which consists the frontend part 
+## backend- which consists the backend part of my process
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
