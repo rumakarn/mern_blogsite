@@ -1,9 +1,8 @@
-import React from 'react';
+import React from "react";
 import { useState } from "react";
 import { Box, Button, InputLabel, TextField, Typography } from "@mui/material";
 import { useNavigate } from "react-router-dom";
-import axios from 'axios';
-
+import axios from "axios";
 
 const labelStyles = { mb: 1, mt: 2, fontSize: "24px", fontWeight: "bold" };
 
@@ -15,7 +14,7 @@ const AddBlog = () => {
   });
 
   const navigate = useNavigate(); // Initialize the navigate function
-  
+
   const handleChange = (e) => {
     setInputs((prevState) => ({
       ...prevState,
@@ -31,7 +30,7 @@ const AddBlog = () => {
   };
   const sendRequest = async () => {
     const res = await axios
-      .post("http://localhost:4000/api/blog/add", {
+      .post("https://mernback-bxdl.onrender.com/api/blog/add", {
         title: inputs.title,
         description: inputs.description,
         image: inputs.imageURL,
@@ -57,7 +56,6 @@ const AddBlog = () => {
           width={"80%"}
         >
           <Typography
-           
             fontWeight={"bold"}
             padding={3}
             color="grey"
@@ -66,33 +64,24 @@ const AddBlog = () => {
           >
             Post Your Blog
           </Typography>
-          <InputLabel  sx={labelStyles}>
-            Title
-          </InputLabel>
+          <InputLabel sx={labelStyles}>Title</InputLabel>
           <TextField
-          
             name="title"
             onChange={handleChange}
             value={inputs.title}
             margin="auto"
             variant="outlined"
           />
-          <InputLabel  sx={labelStyles}>
-            Description
-          </InputLabel>
+          <InputLabel sx={labelStyles}>Description</InputLabel>
           <TextField
-         
             name="description"
             onChange={handleChange}
             value={inputs.description}
             margin="auto"
             variant="outlined"
           />
-          <InputLabel  sx={labelStyles}>
-            ImageURL
-          </InputLabel>
+          <InputLabel sx={labelStyles}>ImageURL</InputLabel>
           <TextField
-           
             name="imageURL"
             onChange={handleChange}
             value={inputs.imageURL}
@@ -111,6 +100,6 @@ const AddBlog = () => {
       </form>
     </div>
   );
-}
+};
 
-export default AddBlog
+export default AddBlog;

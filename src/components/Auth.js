@@ -18,7 +18,7 @@ const Auth = () => {
 
   const sendRequest = async (type = "login") => {
     const res = await axios
-      .post(`http://localhost:4000/api/user/${type}`, {
+      .post(`https://mernback-bxdl.onrender.com/api/user/${type}`, {
         name: inputs.name,
         email: inputs.email,
         password: inputs.password,
@@ -40,10 +40,10 @@ const Auth = () => {
     console.log(inputs);
     if (isSignUp) {
       sendRequest("signup")
-      .then((data) => {
-        localStorage.setItem("userId", data.user._id);
-        return data; // Return data for the next step in the chain
-      })
+        .then((data) => {
+          localStorage.setItem("userId", data.user._id);
+          return data; // Return data for the next step in the chain
+        })
         .then(() => dispatch(authActions.login()))
         .then(() => {
           navigate("/blogs");
@@ -51,10 +51,10 @@ const Auth = () => {
         .then((data) => console.log(data));
     } else {
       sendRequest()
-      .then((data) => {
-        localStorage.setItem("userId", data.user._id);
-        return data; // Return data for the next step in the chain
-      })
+        .then((data) => {
+          localStorage.setItem("userId", data.user._id);
+          return data; // Return data for the next step in the chain
+        })
         .then(() => dispatch(authActions.login()))
         .then(() => {
           navigate("/blogs");
